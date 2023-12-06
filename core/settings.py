@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3&w)p*ppgo_th!i075t*wxb0wky-a^rhkl@@+$)mt*tyq*l$0=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        "NAME": "#",
-        "USER": "#",
-        "PASSWORD": "#",
+        "NAME": "iranart",
+        "USER": "root",
+        "PASSWORD": "arashabdi",
         "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "PORT": "3306",
     }
 }
 
@@ -126,6 +126,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # for deployment
 STATIC_MEDIA = '/mediafiles/' # for development
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # for deployment
 
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'staticfiles'),
+        os.path.join(BASE_DIR, 'mediafiles'),
+    ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
